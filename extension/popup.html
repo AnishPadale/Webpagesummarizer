@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Webpage Summarizer</title>
+  <style>
+    body {
+      width: 380px;
+      margin: 0;
+      padding: 16px;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h2 { margin: 0 0 12px; font-size: 20px; color: #0078d7; }
+    button {
+      background: #0078d7;
+      color: #fff;
+      border: 0;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover:not(:disabled) { background: #005fa3; }
+    button:disabled { background: #9bbbd8; cursor: default; }
+    #summary {
+      margin-top: 14px;
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+    #summary:empty { display: none; }
+    .info { font-size: 13px; color: #666; margin-top: 10px; }
+    input[type="email"] {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .error { color: #c62828; font-size: 13px; }
+    #copiedNotice { color: green; font-size: 13px; margin-left: 8px; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <h2>Webpage Summarizer</h2>
+
+  <button id="summarize">Summarize</button>
+  <div class="info" id="page-count"></div>
+
+  <div id="summary"></div>
+  <button id="copyBtn" hidden>Copy summary</button>
+  <span id="copiedNotice" hidden>Copied!</span>
+
+  <div id="emailSection" class="info" hidden>
+    <p><strong>Upgrade:</strong> one-time payment for 400 more pages.</p>
+    <input type="email" id="userEmail" placeholder="Your email (used to verify payment)" />
+    <button id="submitEmailBtn">Proceed to payment</button>
+    <div id="emailError" class="error" hidden>Please enter a valid email.</div>
+    <p>After paying, reopen the extension and your pages unlock automatically.</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
